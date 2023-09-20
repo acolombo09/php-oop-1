@@ -7,14 +7,14 @@
     public $genre;
 
     // Setto una costante
-    const WELCOME_MESSAGE = "Benvenuto, pantofolaio!" ;
+    const WELCOME_MESSAGE = "Bentornato, pantofolaio!" ;
 
     // Setto la constructor function
-    function __construct($poster, $title, $year, $genre) {
-      $this->poster = $poster;
-      $this->title = $title;
-      $this->year = $year;
-      $this->genre = $genre;
+    function __construct(string $_poster, string $_title, int $_year, array $_genre) {
+      $this->poster = $_poster;
+      $this->title = $_title;
+      $this->year = $_year;
+      $this->genre = $_genre;
     }
 
     // Methods (chiamate così in php, sono le funzioni)
@@ -31,6 +31,10 @@
     }
     public function get_genre() {
       return $this->genre;
+    }
+
+    public function addGenre($_genre) {
+      $this->genre[] = $_genre;
     }
   }
 

@@ -29,26 +29,29 @@ e cartelle. Possiamo ad esempio organizzare il codice:
 require_once __DIR__ . "/models/Movie.php";
 
   // creo nuove istanze nella classe Movie
-$movies = [
+$newMovies = [
   new Movie(
     "https://m.media-amazon.com/images/I/51AP5MY2B5ç._AC_UF894,1000_QL80_.jpg",
     "The Matrix",
     1999,
-    "Science Fiction",
+    ["Action","Science Fiction"],
   ),
   new Movie(
     "https://m.media-amazon.com/images/I/51AP5MY2B5ç._AC_UF894,1000_QL80_.jpg",
     "The Lord of the Rings: The Fellowship of the Ring",
     2001,
-    "Fantasy",
+    ["Fantasy","Adventure"],
   ),
   new Movie(
     "https://m.media-amazon.com/images/I/51AP5MY2B5ç._AC_UF894,1000_QL80_.jpg",
     "Pulp Fiction",
     1994,
-    "Crime",
+    ["Crime","Action"],
   ),
 ];
+
+$movies[0]->addGenre("Thriller");
+
 
 ?>
 
@@ -78,7 +81,7 @@ $movies = [
         </div>
         <div class="row row-cols-3 bg-success bg-opacity-50 g-5 mt-3 pb-5">
           
-          <div class="col d-flex flex-column justify-content-center align-items-center text-center" v-for="post in posts">
+          <div class="col d-flex flex-column justify-content-center align-items-center text-center">
             <div class="card bg-dark bg-opacity-25" style="height: 420px; width: 351px;">
               <div class="card-img-top py-4 d-flex flex-column justify-content-center align-items-center">
                 <img :src="post.poster" alt="-" style="width: 250px; height: 250px;">
