@@ -26,9 +26,29 @@ e cartelle. Possiamo ad esempio organizzare il codice:
 -->
 
 <?php
+require_once __DIR__ . "/models/Movie.php";
 
-
-
+  // creo nuove istanze nella classe Movie
+$movies = [
+  new Movie(
+    "https://m.media-amazon.com/images/I/51AP5MY2B5ç._AC_UF894,1000_QL80_.jpg",
+    "The Matrix",
+    1999,
+    "Science Fiction",
+  ),
+  new Movie(
+    "https://m.media-amazon.com/images/I/51AP5MY2B5ç._AC_UF894,1000_QL80_.jpg",
+    "The Lord of the Rings: The Fellowship of the Ring",
+    2001,
+    "Fantasy",
+  ),
+  new Movie(
+    "https://m.media-amazon.com/images/I/51AP5MY2B5ç._AC_UF894,1000_QL80_.jpg",
+    "Pulp Fiction",
+    1994,
+    "Crime",
+  ),
+];
 
 ?>
 
