@@ -33,29 +33,14 @@
       return $this->genre;
     }
 
-    public function addGenre($_genre) {
-      $this->genre[] = $_genre;
-    }
+    // public function addGenre($_genre) {
+    //   $this->genre[] = $_genre;
+    // }
   }
 
   // stampo una costante nella classe
   echo Movie::WELCOME_MESSAGE;
 
-
-
-  // // testo le setting functions
-  // $apple->set_title('Apple');
-  // $banana->set_title('Banana');
-  // $apple->set_year('Red');
-
-  // // testo le getting functions con la stampa delle properties/variabili
-  // echo $apple->get_title();
-  // echo "<br>";
-  // echo $banana->get_title();
-
-  // echo "Title:" . $apple->get_title();
-  // echo "<br>";
-  // echo "Year:" . $apple->get_year();
 
 ?>
 

@@ -31,26 +31,44 @@ require_once __DIR__ . "/models/Movie.php";
   // creo nuove istanze nella classe Movie
 $newMovies = [
   new Movie(
-    "https://m.media-amazon.com/images/I/51AP5MY2B5ç._AC_UF894,1000_QL80_.jpg",
-    "The Matrix",
-    1999,
-    ["Action","Science Fiction"],
+    _poster: "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
+    _title: "The Matrix",
+    _year: 1999,
+    _genre: ["Action","Science Fiction"],
   ),
   new Movie(
-    "https://m.media-amazon.com/images/I/51AP5MY2B5ç._AC_UF894,1000_QL80_.jpg",
-    "The Lord of the Rings: The Fellowship of the Ring",
-    2001,
-    ["Fantasy","Adventure"],
+    _poster: "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_FMjpg_UX1000_.jpg",
+    _title: "The Lord of the Rings: The Fellowship of the Ring",
+    _year: 2001,
+    _genre: ["Fantasy","Adventure"],
   ),
   new Movie(
-    "https://m.media-amazon.com/images/I/51AP5MY2B5ç._AC_UF894,1000_QL80_.jpg",
-    "Pulp Fiction",
-    1994,
-    ["Crime","Action"],
+    _poster: "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+    _title: "Pulp Fiction",
+    _year: 1994,
+    _genre: ["Crime","Action"],
   ),
+  new Movie(
+    _poster: "https://www.themoviedb.org/t/p/original/l9Rxe5Z1s2cN5KSD3puxiZaJxi5.jpg",
+    _title: "Rocky",
+    _year: 1976,
+    _genre: ["Drama"],
+  ),
+  new Movie(
+    _poster: "https://m.media-amazon.com/images/M/MV5BMTQ1ODM2MjY3OV5BMl5BanBnXkFtZTgwMTU2MjEyMDE@._V1_.jpg",
+    _title: "The Shawshank Redemption",
+    _year: 1994,
+    _genre: ["Drama"],
+  ),
+  new Movie(
+    _poster: "https://m.media-amazon.com/images/M/MV5BMTM0MjUzNjkwMl5BMl5BanBnXkFtZTcwNjY0OTk1Mw@@._V1_.jpg",
+    _title: "Inception",
+    _year: 2010,
+    _genre: ["Science Fiction"],
+  )
 ];
 
-$movies[0]->addGenre("Thriller");
+// $movies[0]->addGenre("Thriller");
 
 
 ?>
@@ -74,26 +92,25 @@ $movies[0]->addGenre("Thriller");
   <div class="container-fluid py-4 bg-dark bg-opacity-90 shadow-lg">
     <div class="row justify-content-center">
       <div class="col-12 d-flex flex-column mx-auto">
-        <div class="col d-flex flex-column justify-content-start mb-2 ms-3">
+        <div class="col d-flex flex-column justify-content-start mb-3 ms-3">
           <a href="#">
             <img src="./imgs/vuejs-logo.png" alt="" width="60" height="45">
           </a>
         </div>
-        <div class="row row-cols-3 bg-success bg-opacity-50 g-5 mt-3 pb-5">
-          
-          <div class="col d-flex flex-column justify-content-center align-items-center text-center">
-            <div class="card bg-dark bg-opacity-25" style="height: 420px; width: 351px;">
-              <div class="card-img-top py-4 d-flex flex-column justify-content-center align-items-center">
-                <img :src="post.poster" alt="-" style="width: 250px; height: 250px;">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title text-white">{{ movie.title }}</h5>
-                <h6 class="card-text text-light fw-light">{{ movie.year }}</h6>
-                <h5 class="card-text text-white"><small>{{ movie.genre }}</small></h5>
+        <div class="row row-cols-3 g-3">
+          <!-- Foreach per stampare elements di movie nelle card -->
+          <?php foreach($newMovies as $movie) { ?>
+            <div class="col">
+              <div class="card bg-secondary bg-opacity-25">
+                <img src="<?php echo $movie->get_posterImage(); ?>" alt="Immagine" class="card-img-top mt-4" style="object-fit: contain; max-height: 510px;">
+                <div class="card-body text-center">
+                  <h5 class="card-title text-white"><?php echo $movie->get_title(); ?> </h5>
+                  <h6 class="card-text text-light fw-light"><?php echo $movie->get_year(); ?> </h6>
+                  <p class="card-text text-white"><?php echo implode(', ', $movie->get_genre()); ?></p>
+                </div>
               </div>
             </div>
-          </div>
-
+          <?php } ?>
         </div>
       </div>
     </div>
@@ -101,6 +118,6 @@ $movies[0]->addGenre("Thriller");
 
   <!-- Bootstrap JS file -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  
 </body>
+
 </html>
